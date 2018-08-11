@@ -1,5 +1,11 @@
+*, *::before,*::after { box-sizing: border-box; }
+
 .App {
   text-align: center;
+}
+
+.CodeBoxContainer {
+  text-align: left;
 }
 
 .App-logo {

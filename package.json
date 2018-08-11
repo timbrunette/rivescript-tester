@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^1.4.3",
     "react": "^16.4.2",
+    "react-codemirror": "^1.0.0",
     "react-dom": "^16.4.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "rivescript": "^2.0.0-alpha.6"
   },
   "scripts": {
     "start": "react-scripts start",
