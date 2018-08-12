@@ -27,6 +27,7 @@ class AppLayout extends Component {
     };
   };
 
+  // todo
   handleBotStreamError = () => {
     alert("Another error!");
   };
@@ -102,8 +103,8 @@ class AppLayout extends Component {
 
 async function getBotMessage(bot, input) {
   if (!bot) {
-    const reply = `This is a RiveScript testing bot!  
-    Try entering some rivescript code and run it to test it out!
+    const reply = `This is a RiveScript testing bot built using React.  
+    Run the RiveScript code to test it out!
     `;
     return { user: "Bot", text: reply };
   }
@@ -138,6 +139,10 @@ const RIVESCRIPT = `! version = 2.0
 
 + (what is my name|who am i)
 - You're <get name>, right?
+
++ (how does *|* confused)
+- To use this tester, first edit the code in the 'RiveScript Editor'\n
+^ Then click 'RUN' to play with the bot to see the different responses!
 
 + *
 - I don't have a reply for that.

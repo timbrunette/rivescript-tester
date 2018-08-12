@@ -18,22 +18,27 @@ class MessengerLayout extends Component {
   render() {
     return (
       <MessengerContainer>
+        <StyledTitle variant="caption">
+          ChatBot
+        </StyledTitle>    
         <Grid
-          item
           container
           direction="column"
           justify="flex-end"
           wrap="nowrap"
+          alignItems="stretch"
         >
-          <div style={{ overflow: "auto" }}>
+          <Grid item xs={12} style={{ overflow: "auto" }}>
             <Messages messages={this.props.messages} />
             <div
               ref={el => {
                 this.el = el;
               }}
             />
-          </div>
-          <MessageInput onSubmit={this.props.onSubmit} />
+          </Grid>
+          <Grid item xs={12}>
+            <MessageInput onSubmit={this.props.onSubmit} />
+          </Grid>
         </Grid>
       </MessengerContainer>
     );
@@ -98,16 +103,25 @@ class MessageInput extends Component {
   }
 }
 
+const StyledTitle = styled(Typography)`
+  padding: 5px;
+  padding-left: 10px;
+  background-color: #f5f5f5;
+  && {
+    margin-bottom: auto;
+  }
+`;
+
 const MessengerContainer = styled(Paper)`
   margin: 10px;
   display: flex;
   flex-grow: 1;
-  height: 606px;
+  height: 632px;
   flex-wrap: nowrap;
+  flex-direction: column;
 `;
 
 const StyledMessageInputContainer = styled(Paper)`
-  flex-grow: 0;
   margin: 20 20 0 20;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 `;
@@ -119,8 +133,8 @@ const StyledMessageContainer = styled.div`
 const MessageTextContainer = styled(Paper)`
   /* Adapt the location based on user props */
   margin: 5px;
-  margin-left: ${props => (props.align === "right" ? "25px" : "5px")};
-  margin-right: ${props => (props.align === "right" ? "5px" : "25px")};
+  margin-left: ${props => (props.align === "right" ? "30px" : "10px")};
+  margin-right: ${props => (props.align === "right" ? "10px" : "30px")};
   padding: 10px;
   display: inline-block;
   float: ${props => props.align};

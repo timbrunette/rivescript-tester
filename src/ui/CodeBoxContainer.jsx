@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 class CodeBoxContainer extends Component {
   state = {
@@ -21,6 +22,9 @@ class CodeBoxContainer extends Component {
     return (
       <div>
         <StyledPaper>
+          <StyledTitle variant="caption">
+            RiveScript Editor
+          </StyledTitle>
           <CodeMirrorBox
             script={this.props.script}
             onChange={this.props.onChange}
@@ -55,7 +59,7 @@ const RunCodeButton = ({ onClick, readOnly }) => {
 
 const DownloadButton = ({ script }) => {
   const handleClick = () => {
-    _downloadTxtFile(script);
+    downloadTextFile(script);
   };
 
   return (
@@ -66,23 +70,29 @@ const DownloadButton = ({ script }) => {
 };
 
 const DeleteMessagesButton = ({ messages, onClick }) => {
-  if (messages.length > 0) {
-    return (
-      <DeleteButton variant="outlined" onClick={onClick}>
-        Delete Messages
-      </DeleteButton>
-    );
+  if (messages.length == 0) {
+    return null;
   }
-  return null;
+  return (
+    <DeleteButton variant="outlined" onClick={onClick}>
+      Delete Messages
+    </DeleteButton>
+  );
 };
 
-const _downloadTxtFile = (text, filename = "file.rs") => {
+const downloadTextFile = (text, filename = "file.rs") => {
   var element = document.createElement("a");
   var file = new Blob([text], { type: "text/plain" });
   element.href = URL.createObjectURL(file);
   element.download = filename;
   element.click();
 };
+
+const StyledTitle = styled(Typography)`
+  padding: 5px;
+  padding-left: 10px;
+  background-color: #f5f5f5;
+`;
 
 const ButtonContainer = styled(Paper)`
   justify-content: space-between;

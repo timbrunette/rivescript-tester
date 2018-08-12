@@ -4,3 +4,12 @@ body {
   font-family: sans-serif;
   display: flex;
 }
+
+*, *::before,*::after { box-sizing: border-box; }
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+}
