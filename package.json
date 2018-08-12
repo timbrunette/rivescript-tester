@@ -10,7 +10,8 @@
     "react-codemirror": "^1.0.0",
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.4",
-    "rivescript": "^2.0.0-alpha.6"
+    "rivescript": "^2.0.0-alpha.6",
+    "styled-components": "^3.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
