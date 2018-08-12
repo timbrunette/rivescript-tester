@@ -77,6 +77,7 @@ class NavBar extends Component {
       <div className={classes.root}>
         <AppBar position="static" color="default">
           <Toolbar className={classes.flex}>
+            <img src="/logo.png"/>
             <Typography variant="title" color="inherit">
               RiveScript Interpreter
             </Typography>

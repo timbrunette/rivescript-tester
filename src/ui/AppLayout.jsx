@@ -97,8 +97,20 @@ class AppLayout extends Component {
 }
 
 
-const RIVESCRIPT = `dsagfasdfkasjdh falskdu fhas
-`;
+const RIVESCRIPT = `! version = 2.0
+
++ hello bot
+- Hello human.
+
++ my name is *
+- <set name=<formal>>Nice to meet you, <get name>.
+
++ (what is my name|who am i)
+- You're <get name>, right?
+
++ *
+- I don't have a reply for that.
+- Try asking that a different way.`;
 
 
 AppLayout.propTypes = {
