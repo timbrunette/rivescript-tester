@@ -7,7 +7,6 @@ import RiveScript from 'rivescript'
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
@@ -24,6 +23,19 @@ class AppLayout extends Component {
     script: RIVESCRIPT,
     messages: [],
     bot: '' 
+  }
+
+  setRef = ref => this.editor = ref
+
+  handleFileUpload = file => {
+    const reader = new FileReader();
+    reader.readAsText(file);
+    reader.onload = () => {
+      console.log(reader.result)
+      this.handleScriptChange(reader.result);
+      const editor = this.editor.getCodeMirror();
+      editor.setValue(this.state.script);
+    };
   }
 
   handleBotStreamError = () => {
@@ -68,11 +80,11 @@ class AppLayout extends Component {
     const { classes } = this.props;
     return (
       <div className="AppLayout">
-        <NavBar />
+        <NavBar onFileUpload={this.handleFileUpload}/>
         <div style={{padding: "10px"}}>
           <Grid container spacing={24}>
             <Grid className="CodeBoxContainer" item xs={6}>
-              <CodeBoxContainer script={this.state.script} onChange={this.handleScriptChange} onSubmit={this.handleScriptSubmit}/>
+              <CodeBoxContainer setRef={this.setRef} script={this.state.script} onChange={this.handleScriptChange} onSubmit={this.handleScriptSubmit}/>
             </Grid>          
             <Grid item xs={6} alignItems="flex-end">
               <MessengerContainer messages={this.state.messages} onSubmit={this.handleMessage} />
@@ -84,21 +96,8 @@ class AppLayout extends Component {
   }
 }
 
-const RIVESCRIPT = `
-! version = 2.0
 
-+ hello bot
-- Hello human.
-
-+ my name is *
-- <set name=<formal>>Nice to meet you, <get name>.
-
-+ (what is my name|who am i)
-- You're <get name>, right?
-
-+ *
-- I don't have a reply for that.
-- Try asking that a different way.
+const RIVESCRIPT = `dsagfasdfkasjdh falskdu fhas
 `;
 
 
