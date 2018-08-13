@@ -3,8 +3,6 @@ import MessageList from "../components/MessageList.jsx";
 import MessageInput from "./MessageInput.jsx";
 
 import styled from "styled-components";
-
-import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";

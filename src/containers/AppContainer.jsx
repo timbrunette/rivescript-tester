@@ -71,7 +71,7 @@ class AppContainer extends Component {
   handleScriptSubmit = () => {
     const bot = new RiveScript({ debug: true });
     if (!bot.stream(this.state.script, this.handleBotStreamError)) {
-      this.handleBotStreamError;
+      this.handleBotStreamError()
       return;
     }
 
