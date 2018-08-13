@@ -7,7 +7,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
-const NavBar = ({ onFileUpload, script}) => (
+const NavBar = ({ onFileUpload, script }) => (
   <NavBarContainer>
     <AppBar position="static" color="default">
       <Toolbar>

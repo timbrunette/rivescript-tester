@@ -1,14 +1,14 @@
-import React from 'react';
-import Message from './Message.jsx';
+import React from "react";
+import Message from "./Message.jsx";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
-const MessageList = ({messages}) => (
+const MessageList = ({ messages }) => (
   <div>
-    {messages.map( (message, index) => (
+    {messages.map((message, index) => (
       <StyledMessageContainer key={index}>
         <Message key={index} user={message.user} text={message.text} />
-      </StyledMessageContainer>      
+      </StyledMessageContainer>
     ))}
   </div>
 );

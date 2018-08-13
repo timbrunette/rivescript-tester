@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import styled from 'styled-components';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+import styled from "styled-components";
+import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 const Message = ({ user, text }) => {
   let align = user === "Bot" ? "left" : "right";

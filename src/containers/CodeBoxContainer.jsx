@@ -1,6 +1,3 @@
-/*!
-  Copyright (c) 2018 Timothy Brunette.
-*/
 import React, { Component } from "react";
 import CodeMirrorBox from "../components/CodeMirrorBox.jsx";
 import RunButton from "../components/RunButton.jsx";
@@ -19,7 +16,7 @@ class CodeBoxContainer extends Component {
     this.setState({
       readOnly: false
     });
-  }
+  };
 
   handleSubmit = () => {
     this.setState({

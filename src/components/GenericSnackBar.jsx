@@ -1,10 +1,11 @@
 import React from "react";
 
+import styled from "styled-components";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
-const GenericSnackBar = ({ open, message, handleClose }) => {
+const GenericSnackBar = ({ open, message, handleClose, type = "default" }) => {
   return (
     <div>
       <Snackbar

@@ -9,11 +9,13 @@ async function getBotMessage(bot, input) {
   let message = await bot.reply("local-user", input).then(
     reply => {
       return { user: "Bot", text: reply };
+    },
+    reject => {
+      alert("error!");
     }
   );
   return message;
 }
-
 
 const defaultScript = `! version = 2.0
 
@@ -34,5 +36,4 @@ const defaultScript = `! version = 2.0
 - I don't have a reply for that.
 - Try asking that a different way.`;
 
-
-export { getBotMessage, defaultScript }; 
+export { getBotMessage, defaultScript };

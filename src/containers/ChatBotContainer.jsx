@@ -13,7 +13,7 @@ class ChatBotContainer extends Component {
   componentDidUpdate = () => {
     this.scrollToBottom();
   };
-  
+
   scrollToBottom = () => this.el.scrollIntoView({ behaviour: "smooth" });
 
   render() {

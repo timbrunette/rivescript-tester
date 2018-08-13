@@ -17,7 +17,7 @@ class UploadButton extends Component {
     if (file.size > 2048000) {
       this.setState({
         open: true,
-        message: "Please upload a smaller file"
+        message: "Error: Please upload a smaller file."
       });
     }
 
@@ -29,12 +29,12 @@ class UploadButton extends Component {
       this.props.handleFileUpload(file);
       this.setState({
         open: true,
-        message: "File uploaded"
+        message: "File uploaded."
       });
     } else {
       this.setState({
         open: true,
-        message: "Please upload a rivescript file (.rs or .rive)"
+        message: "Error: Please upload a rivescript file (.rs or .rive)."
       });
     }
   };

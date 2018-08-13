@@ -4,17 +4,17 @@ const CodeMirror = require("react-codemirror");
 require("codemirror/lib/codemirror.css");
 require("./codemirrorcustom.css");
 
-const CodeMirrorBox = ({setRef, script, onChange, readOnly }) => {
+const CodeMirrorBox = ({ setRef, script, onChange, readOnly }) => {
   const handleChange = script => {
     onChange(script);
   };
 
   const options = {
-      lineNumbers: true,
-      readOnly: readOnly,
-      tabSize: 2
+    lineNumbers: true,
+    readOnly: readOnly,
+    tabSize: 2
   };
-  
+
   return (
     <CodeMirror
       ref={setRef}

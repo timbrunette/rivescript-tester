@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 
 const RunButton = ({ onClick, readOnly }) => {
   const color = readOnly ? "secondary" : "primary";
