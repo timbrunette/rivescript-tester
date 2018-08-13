@@ -6,7 +6,9 @@ import Button from "@material-ui/core/Button";
 class UploadButton extends Component {
   state = {
     selectedFileData: null,
+    /** Open status of GenericSnackBar */
     open: false,
+    /** Message passed to GenericSnackBar */
     message: ""
   };
 
@@ -58,7 +60,7 @@ class UploadButton extends Component {
           onChange={this.handleFileChange}
         />
         <Button variant="outlined" onClick={e => this.fileUpload.click()}>
-          Upload RiveScript File
+          Upload File
         </Button>
         <GenericSnackBar
           message={this.state.message}

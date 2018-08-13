@@ -1,16 +1,20 @@
 import React, { Component } from "react";
-import NavBar from "./NavBar.jsx";
+import NavBar from "../components/NavBar.jsx";
 import CodeBoxContainer from "./CodeBoxContainer.jsx";
-import MessengerLayout from "./MessengerLayout.jsx";
+import ChatBotContainer from "./ChatBotContainer.jsx";
+import { StyledAppContainer } from "../components/StyledAppContainer.js";
 import RiveScript from "rivescript";
+import { getBotMessage, defaultScript } from "../api.js";
 
 import Grid from "@material-ui/core/Grid";
-import styled from "styled-components";
 
-class AppLayout extends Component {
+class App extends Component {
   state = {
-    script: RIVESCRIPT,
+    /** The RiveScript script itself */
+    script: defaultScript,
+    /** Array of current message objects of form {user: 'user-name' text: 'message'} */
     messages: [],
+    /** The RiveScript interpreter bot */
     bot: null
   };
 
@@ -75,8 +79,11 @@ class AppLayout extends Component {
 
   render() {
     return (
-      <AppContainer>
-        <NavBar onFileUpload={this.handleFileUpload} />
+      <StyledAppContainer>
+        <NavBar
+          onFileUpload={this.handleFileUpload}
+          script={this.state.script}
+        />
         <Grid container spacing={0} justify="center">
           <Grid item xs={12} sm={6} lg={5}>
             <CodeBoxContainer
@@ -90,62 +97,15 @@ class AppLayout extends Component {
             />
           </Grid>
           <Grid container item xs={12} sm={6} lg={3} alignItems="flex-end">
-            <MessengerLayout
+            <ChatBotContainer
               messages={this.state.messages}
               onSubmit={this.handleMessage}
             />
           </Grid>
         </Grid>
-      </AppContainer>
+      </StyledAppContainer>
     );
   }
 }
 
-async function getBotMessage(bot, input) {
-  if (!bot) {
-    const reply = `This is a RiveScript testing bot built using React.  
-    Run the RiveScript code to test it out!
-    `;
-    return { user: "Bot", text: reply };
-  }
-
-  let message = await bot.reply("local-user", input).then(
-    reply => {
-      return { user: "Bot", text: reply };
-    },
-    reason => {
-      alert("FUCK!");
-      return null;
-    }
-  );
-  return message;
-}
-
-const AppContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex-grow: 1;
-  height: 100%;
-`;
-
-const RIVESCRIPT = `! version = 2.0
-
-+ hello bot
-- Hello human.
-
-+ my name is *
-- <set name=<formal>>Nice to meet you, <get name>.
-
-+ (what is my name|who am i)
-- You're <get name>, right?
-
-+ (how does *|* confused)
-- To use this tester, first edit the code in the 'RiveScript Editor'\n
-^ Then click 'RUN' to play with the bot to see the different responses!
-
-+ *
-- I don't have a reply for that.
-- Try asking that a different way.`;
-
-export default AppLayout;
+export default App;
